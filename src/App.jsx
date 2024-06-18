@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
-import { Container } from 'react-bootstrap';
+import { Container, Row,Col } from 'react-bootstrap';
+import Moviecard from './components/Card';
 
 function App() {
 
@@ -10,7 +11,13 @@ function App() {
       <Header />
       <main className='py-3'>
         <Container>
-          <h1>Welcome to my API React Application</h1>
+          <Row xs={1} md={2} lg={4} className="g-4">
+            {Array.from({ length: 8 }).map((_, idx) => (
+              <Col key={idx}>
+                <Moviecard />
+              </Col>
+            ))}
+          </Row>
         </Container>
 
       </main>
