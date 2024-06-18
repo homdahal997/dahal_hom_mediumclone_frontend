@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
+import Footer from './components/Footer';
 import { Container, Row,Col } from 'react-bootstrap';
 import Moviecard from './components/Card';
 
@@ -19,9 +20,10 @@ function App() {
             ))}
           </Row>
         </Container>
+        
 
       </main>
-
+      <Footer />
     </>
   )
 }
