@@ -11,3 +11,10 @@ img{
   width: 250px;
   height: 250px;
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
