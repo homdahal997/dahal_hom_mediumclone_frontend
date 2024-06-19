@@ -13,7 +13,7 @@ function Footer() {
     return (
         <footer>
             {/* https://react-bootstrap.github.io/docs/components/navbar */}
-            <Navbar bg='' variant='light' expand='lg' collapseOnSelect className="myCustomNavbar">
+            <Navbar bg='' variant='light' expand='lg' collapseOnSelect className="myCustomNavbarFooter">
                 <Container>
                     <Navbar.Brand href='/'>
                         <img src={logo} alt='moviemania' />
