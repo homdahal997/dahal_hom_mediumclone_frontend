@@ -22,8 +22,7 @@ function Header() {
                             <Nav.Link href='/'>Upcoming</Nav.Link>
                         </Nav>
                         <Nav className='ms-auto'>
-                            <TiAdjustBrightness style={{width:'30px', height: '30px', border:'1px solid grey', borderRadius:'50%', backgroundColor:'whitesmoke'}} />
-                            {/* <Nav.Link href='/login'><FaUser/> Sign In</Nav.Link> */}
+                            <TiAdjustBrightness style={{width:'30px', height: '30px', border:'3px solid grey', borderRadius:'10px', backgroundColor:'whitesmoke'}} />
                         </Nav>
                     </Navbar.Collapse>
                     <Form className="d-flex">
@@ -34,7 +33,7 @@ function Header() {
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">Search</Button>
+                        <Button variant="outline-secondary">Search</Button>
                     </Form>
                 </Container>
             </Navbar>
