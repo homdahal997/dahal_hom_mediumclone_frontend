@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer';
@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <MyRoutes />
-      <main className='py-3'>
+      {/* <main className='py-3'>
         <Container>
           <Row xs={1} md={2} lg={4} className="g-4">
             {Array.from({ length: 8 }).map((_, idx) => (
@@ -24,7 +24,7 @@ function App() {
         </Container>
         
 
-      </main>
+      </main> */}
       <Footer />
     </>
   )
