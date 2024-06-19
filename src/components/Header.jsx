@@ -22,7 +22,7 @@ function Header() {
                             <Nav.Link href='/'>Upcoming</Nav.Link>
                         </Nav>
                         <Nav className='ms-auto'>
-                            <TiAdjustBrightness />
+                            <TiAdjustBrightness style={{width:'30px', height: '30px', border:'1px solid grey', borderRadius:'50%', backgroundColor:'whitesmoke'}} />
                             {/* <Nav.Link href='/login'><FaUser/> Sign In</Nav.Link> */}
                         </Nav>
                     </Navbar.Collapse>
