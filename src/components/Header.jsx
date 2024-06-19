@@ -13,9 +13,9 @@ function Header() {
                 <Container>
                     <Navbar.Brand as={NavLink} to='/'>
                         <img src={logo} alt='moviemania' />
-                        MovieMania
+                        <span className="brand-name">MovieMania</span>
                     </Navbar.Brand>
-                    
+
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className='ms-auto'>
