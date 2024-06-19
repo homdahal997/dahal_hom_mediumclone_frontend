@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FaRegSun } from "react-icons/fa";
-import { FaMoon } from "react-icons/fa";
+import { BiSolidMoon } from "react-icons/bi";
 import logo from '../images/movielogo.png'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -22,9 +22,9 @@ function Header() {
 
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
-                        <Nav className='ms-auto'>
-                            <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
-                            <Nav.Link as={NavLink} to='/movies/popular'>Popular</Nav.Link>
+                        <Nav className='ms-auto ' >
+                            <Nav.Link as={NavLink} to='/' style={{color: 'white'}}>Home</Nav.Link>
+                            <Nav.Link as={NavLink} to='/movies/popular'>Popular </Nav.Link>
                             <Nav.Link as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
                             <Nav.Link as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
                         </Nav>
@@ -33,7 +33,7 @@ function Header() {
                                 <FaRegSun style={{ width: '25px', height: '25px', color: 'white'}} onClick={toggleMode} />
                             ) : (
                                 
-                                <FaMoon style={{ width: '25px', height: '25px', color: 'black'}} onClick={toggleMode} />
+                                <BiSolidMoon style={{ width: '25px', height: '25px', color: 'black'}} onClick={toggleMode} />
                             )}
                         </Nav>
                     </Navbar.Collapse>
