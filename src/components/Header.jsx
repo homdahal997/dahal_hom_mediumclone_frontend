@@ -30,10 +30,10 @@ function Header() {
                         </Nav>
                         <Nav className='ms-auto'>
                             {isDarkMode ? (
-                                <FaRegSun style={{ width: '25px', height: '25px', color: 'white'}} onClick={toggleMode} />
+                                <FaRegSun style={{ width: '25px', height: '25px', color: 'white', padding:'5px', border : '1px solid grey',cursor:'pointer'}} onClick={toggleMode} />
                             ) : (
                                 
-                                <BiSolidMoon style={{ width: '25px', height: '25px', color: 'black'}} onClick={toggleMode} />
+                                <BiSolidMoon style={{ width: '25px', height: '25px', color: 'black', padding:'5px', border : '1px solid grey',cursor:'pointer'}} onClick={toggleMode} />
                             )}
                         </Nav>
                     </Navbar.Collapse>
