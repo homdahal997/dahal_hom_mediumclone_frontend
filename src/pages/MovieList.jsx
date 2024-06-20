@@ -10,7 +10,7 @@ export const MovieList = ({ apiPath, title }) => {
     useTitle(title);
 
     return (
-        <main className='py-3' >
+        <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`} >
             <Container>
                 <h1 style={{marginBottom: '50px'}}>{title}</h1>
                 <Row xs={1} md={2} lg={4} className="g-4">
