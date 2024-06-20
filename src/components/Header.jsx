@@ -31,7 +31,7 @@ function Header() {
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className='ms-auto ' >
-                            <Nav.Link as={NavLink} to='/' style={{ color: 'white' }}>Home</Nav.Link>
+                            <Nav.Link as={NavLink} to='/'>Home</Nav.Link>
                             <Nav.Link as={NavLink} to='/movies/popular'>Popular </Nav.Link>
                             <Nav.Link as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
                             <Nav.Link as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
