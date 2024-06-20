@@ -15,7 +15,7 @@ export const MovieList = ({ apiPath, title }) => {
                 <h1 style={{marginBottom: '50px'}}>{title}</h1>
                 <Row xs={1} md={2} lg={4} className="g-4">
                     {movies ? movies.map((m) => (
-                        <Col key={m.id}>
+                        <Col sm={12} md={6} lg={4} xl={3} key={m.id}>
                             <Moviecard key={m.id} movie={m} />
                         </Col>
                     )) : 
