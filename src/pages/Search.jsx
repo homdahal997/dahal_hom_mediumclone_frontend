@@ -11,7 +11,7 @@ function Search({ apiPath }) {
 
     return (
         <main className='py-3'>
-            <Container>
+            <Container style={{minHeight:'100vh'}}>
                 <h1 style={{ marginBottom: '50px' }}>Search Results for <span style={{ backgroundColor: 'black', color: 'white', padding: '5px' }}>{queryTerm}</span></h1>
                 <Row xs={1} md={2} lg={4} className="g-4">
                     {movies.length > 0 ? (

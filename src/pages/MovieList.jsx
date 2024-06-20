@@ -16,7 +16,8 @@ export const MovieList = ({ apiPath, title }) => {
                         <Col key={m.id}>
                             <Moviecard key={m.id} movie={m} />
                         </Col>
-                    )) : <p>Loading movies...</p>}
+                    )) : 
+                    <Col><p>Loading movies...</p></Col>}
                 </Row>
             </Container>
         </main>

@@ -27,10 +27,10 @@ function MovieDetail() {
                 <Col xs={6}> <img style={{ width: '500px', height: '700px', margin: '50px' }} src={image} alt={movie.title} /></Col>
                 <Col xs={6}>
                     <h1 style={{ margin: '50px 0 10px 0' }}>{movie.title}</h1>
-                    <p style={{ marginBottom: '50px' }}>{movie.overview}</p>
+                    <p style={{ marginBottom: '20px' }}>{movie.overview}</p>
                     {<hr />}
 
-                    <h4 style={{ marginBottom: '20px' }}>Movie Generes</h4>
+                    <h4 style={{ marginBottom: '10px' }}>Movie Generes</h4>
                     {movie.genres ? (
                         <p>
                             {movie.genres.map((genre) => (
