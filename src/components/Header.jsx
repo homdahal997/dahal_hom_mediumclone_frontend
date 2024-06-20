@@ -5,11 +5,10 @@ import logo from '../images/movielogo.png'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import {useTheme} from '../contexts/ThemeContext'
 
 function Header() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    const toggleMode = () => setIsDarkMode(!isDarkMode);
+    const { isDarkMode, toggleMode } = useTheme();
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
