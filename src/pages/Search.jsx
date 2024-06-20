@@ -12,13 +12,19 @@ function Search({ apiPath }) {
     return (
         <main className='py-3'>
             <Container>
-                <h1 style={{ marginBottom: '50px' }}>Search Results for {queryTerm}</h1>
+                <h1 style={{ marginBottom: '50px' }}>Search Results for <span style={{ backgroundColor: 'black', color: 'white', padding: '5px' }}>{queryTerm}</span></h1>
                 <Row xs={1} md={2} lg={4} className="g-4">
-                    {movies.map((m) => (
+                    {movies.length > 0 ? (
+                        movies.map((m) => (
+                            <Col key={m.id}>
+                                <Moviecard movie={m} />
+                            </Col>
+                        ))
+                    ) : (
                         <Col>
-                        <Moviecard key={m.id} movie={m} />
+                            <p style={{color: 'purple', fontSize: '30px', display: 'block', whiteSpace: 'nowrap'}}>Sorry...No results found for <span style={{textDecoration: 'line-through'}}>{queryTerm}</span> try searching another movie</p>
                         </Col>
-                    ))}
+                    )}
                 </Row>
             </Container>
         </main>
