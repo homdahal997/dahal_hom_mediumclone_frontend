@@ -3,14 +3,16 @@ import { fetchAPIData } from '../hooks/fetchAPIData'
 import { useTitle } from "../hooks/useTitle";
 import Moviecard from '../components/Card';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useTheme } from '../contexts/ThemeContext';
 function Search({ apiPath }) {
+    const { isDarkMode, toggleMode } = useTheme();
     const [searchParams] = useSearchParams();
     const queryTerm = searchParams.get("q");
     const { data: movies } = fetchAPIData(apiPath, queryTerm);
     useTitle(`Search result for ${queryTerm}`);
 
     return (
-        <main className='py-3'>
+        <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`} >
             <Container style={{minHeight:'100vh'}}>
                 <h1 style={{ marginBottom: '50px' }}>Search Results for <span style={{ backgroundColor: 'black', color: 'white', padding: '5px' }}>{queryTerm}</span></h1>
                 <Row xs={1} md={2} lg={4} className="g-4">

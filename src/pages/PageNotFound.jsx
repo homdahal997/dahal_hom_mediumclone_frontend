@@ -3,13 +3,14 @@ import page404 from '../images/404-Page-Not-Found.png'
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+import { useTheme } from '../contexts/ThemeContext';
 function PageNotFound() {
-
+    const { isDarkMode, toggleMode } = useTheme();
     useEffect(() => {
         document.title = `Page Not Found / MovieMania`;
     });
     return (
-        <main className='py-3'>
+        <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`} >
             <Container>
                 <Row>
                 <Col xs={6}> <img style={{width : '750px', height : '750px', display: ''}} src={page404}></img></Col>

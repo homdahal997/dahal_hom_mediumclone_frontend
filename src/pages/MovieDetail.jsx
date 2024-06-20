@@ -6,8 +6,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
 import placeholder from '../images/backup-films.jpg';
+import { useTheme } from '../contexts/ThemeContext';
 
 function MovieDetail() {
+    const { isDarkMode, toggleMode } = useTheme();
     const params = useParams();
     const [movie, setMovie] = useState({});
     const pageTitle = useTitle(movie.title);
@@ -22,6 +24,7 @@ function MovieDetail() {
         fetchMovie();
     }, [params.id]);
     return (
+        <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`} >
         <Container>
             <Row>
                 <Col xs={6}> <img style={{ width: '500px', height: '700px', margin: '50px' }} src={image} alt={movie.title} /></Col>
@@ -34,7 +37,7 @@ function MovieDetail() {
                     {movie.genres ? (
                         <p>
                             {movie.genres.map((genre) => (
-                                <Badge style={{ margin: '10px', padding: '10px' }} bg="secondary">{genre.name}</Badge>
+                                <Badge key={genre.id} style={{ margin: '10px', padding: '10px' }} bg="secondary">{genre.name}</Badge>
                             ))}
                         </p>
                     ) : ""}
@@ -45,7 +48,7 @@ function MovieDetail() {
                     <span style={{ marginBottom: '20px' }}><strong>Reviewed By : </strong>{movie.vote_count} Reviewers</span>
                     {<hr />}
                     <h4>Other Details</h4>
-                    <Table striped bordered hover style={{ marginTop: '20px' }}>
+                    <Table striped bordered hover style={{ marginTop: '20px'}}>
                         <tbody>
                             <tr>
                                 <td><strong>Runtime</strong></td>
@@ -76,6 +79,7 @@ function MovieDetail() {
             </Row>
 
         </Container>
+        </main>
     )
 }
 export default MovieDetail
