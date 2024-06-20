@@ -13,7 +13,7 @@ function MyRoutes() {
             <Route path="movies/popular" element={<MovieList apiPath="movie/popular" title="Popular Movies"/>} />
             <Route path="movies/top" element={<MovieList apiPath="movie/top_rated" title="Top Rated Movies" />} />
             <Route path="movies/upcoming" element={<MovieList apiPath="movie/upcoming" title="Upcoming Movies" />} />
-            <Route path="movies/search" element={<Search />} />
+            <Route path="search" element={<Search apiPath="search/movie" />} />
             <Route path="*" element={<PageNotFound />} />
         </Routes>
         </>
