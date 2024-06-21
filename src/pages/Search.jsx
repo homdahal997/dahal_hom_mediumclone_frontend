@@ -24,7 +24,7 @@ function Search({ apiPath }) {
                         ))
                     ) : (
                         <Col>
-                            <p style={{color: 'purple', fontSize: '30px', display: 'block', whiteSpace: 'nowrap'}}>Sorry...No results found for <span style={{textDecoration: 'line-through'}}>{queryTerm}</span> try searching another movie</p>
+                            <p style={{color: isDarkMode ? 'white' : 'black', fontSize: '30px', display: 'block', whiteSpace: 'nowrap'}}>Sorry...No results found for <span style={{textDecoration: 'line-through'}}>{queryTerm}</span> try searching another movie</p>
                         </Col>
                     )}
                 </Row>
