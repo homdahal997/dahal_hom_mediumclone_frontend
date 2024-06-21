@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import placeholder from '../images/backup-films.jpg';
 
 function Moviecard({ movie }) {
+    const navigate = useNavigate();
     const {id, original_title, overview, poster_path} = movie;
     const image = poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : placeholder;
     return (
@@ -14,9 +15,7 @@ function Moviecard({ movie }) {
                 <Card.Text>
                     {overview.length > 50 ? overview.substring(0, 50) + '...' : overview}
                 </Card.Text>
-                <Link to={`/movie/${id}`} style={{ textDecoration: 'none' }}>
-                    <Button variant="primary">View Details</Button>
-                </Link>
+                <Button variant="primary" onClick={() => navigate(`/movie/${id}`)}>View Details</Button>
             </Card.Body>
         </Card>
     );
