@@ -28,4 +28,4 @@ To get a local copy up and running, follow these simple steps:
 3. npm run dev
   
   ### Initial Project Wireframe
-  ![Example Image](/src/images/sba320_mockup.png)
+  ![Initial Mockup](/src/images/sba320_mockup.png)
