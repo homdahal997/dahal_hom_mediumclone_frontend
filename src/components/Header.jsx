@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FaRegSun } from "react-icons/fa";
 import { BiSolidMoon } from "react-icons/bi";
-import logo from '../images/movielogo.png'
+import logo from '../images/logocc.png'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -23,8 +23,8 @@ function Header() {
             <Navbar bg='' variant='light' expand='lg' collapseOnSelect className={isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}>
                 <Container>
                     <Navbar.Brand as={NavLink} to='/'>
-                        <img src={logo} alt='medium clone' />
-                        <span className={`brand-name ${isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}`}>Medium CLone</span>
+                        <img src={logo} alt='Content Craft' />
+                        <span className={`brand-name ${isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}`}>Content Craft</span>
                     </Navbar.Brand>
 
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
