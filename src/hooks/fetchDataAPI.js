@@ -17,6 +17,8 @@ export const fetchPostsData = () => {
             }
         }
         fetchPosts();
+        console.log(fetchPosts())
+
     }, [url])
 
     return { data, error }

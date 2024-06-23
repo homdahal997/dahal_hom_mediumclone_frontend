@@ -3,7 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer';
 import { Container, Row,Col } from 'react-bootstrap';
-import Moviecard from './components/Card';
+import PostList from './pages/PostList';
 import MyRoutes from './routes/MyRoutes';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
     <>
       <Header />
       <MyRoutes />
+      <PostList />
       {/* <main className='py-3'>
         <Container>
           <Row xs={1} md={2} lg={4} className="g-4">
