@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
-import FormContainer from '../components/FormContainer'; 
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { setAuth } = useAuth(); 
+    const { setAuth } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5050/api/v1/users/login', { 
+            const response = await fetch('http://localhost:5050/api/v1/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,21 +25,52 @@ function LoginPage() {
             }
 
             const data = await response.json();
-            setAuth({ user: data.user, token: data.token }); 
-            navigate('/profile'); 
+            setAuth({ user: data.user, token: data.token });
+            navigate('/profile');
         } catch (error) {
             console.error(error);
-            
+
         }
     };
 
     return (
-        <FormContainer> 
-            <Form onSubmit={handleSubmit}>
-                
-                <Button type="submit">Login</Button>
-            </Form>
-        </FormContainer>
+        <Container >
+            <Row className='justify-content-md-center'>
+                <Col style={{border: '1px solid grey', padding: '25px', borderRadius:'25px'}} xs={12} md={6}>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Enter email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        <Button style={{width: '100%', marginTop: '55px'}} variant="primary" type="submit">
+                            Login
+                        </Button>
+                        <Row className="py-3">
+                            <Col style={{marginTop: '25px', float: 'right'}}>
+                                New Customer? <a href="/register">Register</a>
+                            </Col>
+                        </Row>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
+
     );
 }
 

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { Container, Row,Col } from 'react-bootstrap';
 import PostList from './pages/PostList';
 import MyRoutes from './routes/MyRoutes';
+import LoginPage from './pages/LoginPage';
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
     <>
       <Header />
       <MyRoutes />
+      <LoginPage />
       <PostList />
+
       {/* <main className='py-3'>
         <Container>
           <Row xs={1} md={2} lg={4} className="g-4">

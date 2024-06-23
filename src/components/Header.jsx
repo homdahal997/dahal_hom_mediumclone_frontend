@@ -23,28 +23,13 @@ function Header() {
             <Navbar bg='' variant='light' expand='lg' collapseOnSelect className={isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}>
                 <Container>
                     <Navbar.Brand as={NavLink} to='/'>
-                        <img src={logo} alt='moviemania' />
-                        <span className={`brand-name ${isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}`}>MovieMania</span>
+                        <img src={logo} alt='medium clone' />
+                        <span className={`brand-name ${isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}`}>Medium CLone</span>
                     </Navbar.Brand>
 
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
-                        <Nav className='ms-auto ' >
-                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/'>Home</Nav.Link>
-                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/movies/popular'>Popular </Nav.Link>
-                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
-                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
-                        </Nav>
-                        <Nav className='ms-auto'>
-                            {isDarkMode ? (
-                                <FaRegSun style={{ marginRight:'20px', width: '25px', height: '25px', color: 'white', padding: '5px', border: '1px solid grey', cursor: 'pointer' }} onClick={toggleMode} />
-                            ) : (
-
-                                <BiSolidMoon style={{ marginRight:'20px', width: '25px', height: '25px', color: 'black', padding: '5px', border: '1px solid grey', cursor: 'pointer' }} onClick={toggleMode} />
-                            )}
-                        </Nav>
-                    </Navbar.Collapse>
-                    <Form onSubmit={handleSubmit} className="d-flex">
+                    <Form style={{margin: '0px 10px 0px 40px'}} onSubmit={handleSubmit} className="d-flex">
                         <Form.Control
                             type="search"
                             placeholder="Search Movies..."
@@ -54,6 +39,23 @@ function Header() {
                         />
                         <Button style={{color: isDarkMode? 'white':'black'}} variant="outline-secondary" type="submit">Search</Button>
                     </Form>
+                    <Nav className='ms-auto'>
+                            {isDarkMode ? (
+                                <FaRegSun style={{ marginRight:'20px', width: '25px', height: '25px', color: 'white', padding: '5px', border: '1px solid grey', cursor: 'pointer' }} onClick={toggleMode} />
+                            ) : (
+
+                                <BiSolidMoon style={{ marginRight:'20px', width: '25px', height: '25px', color: 'black', padding: '5px', border: '1px solid grey', cursor: 'pointer' }} onClick={toggleMode} />
+                            )}
+                        </Nav>
+                        <Nav className='ms-auto ' >
+                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/'>Home</Nav.Link>
+                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/movies/popular'>Popular </Nav.Link>
+                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
+                            <Nav.Link style={{color: isDarkMode? 'white':'black'}} as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
+                        </Nav>
+                        
+                    </Navbar.Collapse>
+                    
                 </Container>
             </Navbar>
         </header>
