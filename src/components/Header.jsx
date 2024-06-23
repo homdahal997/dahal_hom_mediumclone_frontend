@@ -40,7 +40,7 @@ function Header() {
                         <Form style={{ margin: '0px 10px 0px 40px' }} onSubmit={handleSubmit} className="d-flex">
                             <Form.Control
                                 type="search"
-                                placeholder="Search Movies..."
+                                placeholder="Search Posts..."
                                 className="me-2"
                                 aria-label="Search"
                                 name='search'

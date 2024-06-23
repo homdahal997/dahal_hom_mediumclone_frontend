@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 
-export const fetchPostsData = () => {
+export const useFetchPostsData = (queryTerm) => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
-    const url = "http://localhost:5050/api/v1/posts";
 
     useEffect(() => {
+        const url = queryTerm 
+            ? `http://localhost:5050/api/v1/posts?search=${queryTerm}` 
+            : "http://localhost:5050/api/v1/posts";
+
         async function fetchPosts() {
             try {
                 const response = await fetch(url);
@@ -16,10 +19,9 @@ export const fetchPostsData = () => {
                 setError(e.message);
             }
         }
+
         fetchPosts();
-        console.log(fetchPosts())
+    }, [queryTerm]);
 
-    }, [url])
-
-    return { data, error }
-}
+    return { data, error };
+};
