@@ -3,7 +3,7 @@ import MovieList from "../pages/MovieList";
 import MovieDetail from "../pages/MovieDetail";
 import Search from "../pages/Search";
 import PageNotFound from "../pages/PageNotFound";
-import LoginPage from "../pages/LoginPage";
+import LoginForm from "../components/LoginForm";
 
 function MyRoutes() {
     return(
@@ -17,7 +17,7 @@ function MyRoutes() {
             <Route path="search" element={<Search apiPath="search/movie" />} />
             <Route path="*" element={<PageNotFound title="404 Page Not Found"/>} />
 
-            <Route path="/login" element={<LoginPage title="Login" />} />
+            <Route path="/login" element={<LoginForm title="Login" />} />
         </Routes>
         </>
     )

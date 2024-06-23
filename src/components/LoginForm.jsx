@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 
-function LoginPage() {
+function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -36,8 +36,8 @@ function LoginPage() {
     return (
         <Container >
             <Row className='justify-content-md-center'>
-                <Col style={{border: '1px solid grey', padding: '25px', borderRadius:'25px'}} xs={12} md={6}>
-                    <Form onSubmit={handleSubmit}>
+                <Col >
+                    <Form style={{border: '1px solid grey', padding: '25px', borderRadius:'25px', margin: '50px'}} xs={12} md={6} onSubmit={handleSubmit}>
                         <Form.Group controlId="email">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
@@ -74,4 +74,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage;
+export default LoginForm;

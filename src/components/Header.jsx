@@ -7,11 +7,30 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext'
+import { logout as apiLogout } from '../api/apipart';
+import { useAuth } from '../contexts/AuthContext';
+
 
 function Header() {
     const { isDarkMode, toggleMode } = useTheme();
+    const { logout } = useAuth();
     const navigate = useNavigate();
 
+    const logoutHandler = async () => {
+        try {
+            // Call the API logout function
+            const message = await apiLogout();
+            console.log(message); // Logged out successfully
+    
+            // Clear user info from context and local storage
+            logout();
+    
+            // Redirect to the login page or home page after logout
+            navigate('/');
+        } catch (error) {
+            console.error('Logout failed', error);
+        }
+    };
     const handleSubmit = (event) => {
         event.preventDefault();
         const queryTerm = event.target.search.value;
@@ -53,20 +72,22 @@ function Header() {
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/popular'>Popular </Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
-                            <Nav.Link as={NavLink} to='/login'>
-                                    <FaUser /> Sign In
-                                </Nav.Link>
-                            <NavDropdown id='username'>
+                            {false ? (
+                                <>
+                                    <NavDropdown title={userInfo.name} id='username'>
+                                        <NavDropdown.Item as={NavLink} to='/profile'>
+                                            Profile
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item onClick={logoutHandler}>
+                                            Logout
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                </>
+                            ) : (
                                 <Nav.Link as={NavLink} to='/login'>
                                     <FaUser /> Sign In
                                 </Nav.Link>
-                                <NavDropdown.Item as={NavLink} to='/profile'>
-                                    Profile
-                                </NavDropdown.Item>
-                                <NavDropdown.Item>
-                                    Logout
-                                </NavDropdown.Item>
-                            </NavDropdown>
+                            )}
                         </Nav>
 
                     </Navbar.Collapse>
