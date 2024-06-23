@@ -63,7 +63,7 @@ function LoginPage() {
                         </Button>
                         <Row className="py-3">
                             <Col style={{marginTop: '25px', float: 'right'}}>
-                                New Customer? <a href="/register">Register</a>
+                                New to Content Craft ? <a href="/register">Register</a>
                             </Col>
                         </Row>
                     </Form>
