@@ -6,11 +6,13 @@ import { useAuth } from '../contexts/AuthContext';
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null); 
     const navigate = useNavigate();
-    const { setAuth } = useAuth();
+    const { setCredentials } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(null); // Reset error state
         try {
             const response = await fetch('http://localhost:5050/api/v1/users/login', {
                 method: 'POST',
@@ -21,23 +23,24 @@ function LoginForm() {
             });
 
             if (!response.ok) {
-                throw new Error('Login failed');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Login failed');
             }
 
             const data = await response.json();
-            setAuth({ user: data.user, token: data.token });
+            setCredentials({ user: data.user, token: data.token });
             navigate('/profile');
         } catch (error) {
+            setError(error.message);
             console.error(error);
-
         }
     };
 
     return (
-        <Container >
+        <Container>
             <Row className='justify-content-md-center'>
-                <Col >
-                    <Form style={{border: '1px solid grey', padding: '25px', borderRadius:'25px', margin: '50px'}} xs={12} md={6} onSubmit={handleSubmit}>
+                <Col style={{border: '1px solid grey', padding: '25px', borderRadius:'25px'}} xs={12} md={6}>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="email">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
@@ -58,6 +61,8 @@ function LoginForm() {
                             />
                         </Form.Group>
 
+                        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+
                         <Button style={{width: '100%', marginTop: '55px'}} variant="primary" type="submit">
                             Login
                         </Button>
@@ -70,7 +75,6 @@ function LoginForm() {
                 </Col>
             </Row>
         </Container>
-
     );
 }
 

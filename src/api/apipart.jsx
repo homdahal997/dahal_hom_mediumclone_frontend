@@ -1,5 +1,5 @@
 // Define the base URL for your API
-const USERS_URL = 'http://localhost:3000/users';
+const USERS_URL = 'http://localhost:5050/api/v1/users/login';
 
 // Login function
 export const login = async (data) => {

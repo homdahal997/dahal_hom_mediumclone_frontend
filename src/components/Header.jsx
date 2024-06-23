@@ -13,23 +13,12 @@ import { useAuth } from '../contexts/AuthContext';
 
 function Header() {
     const { isDarkMode, toggleMode } = useTheme();
-    const { logout } = useAuth();
+    const { userInfo, logout } = useAuth();
     const navigate = useNavigate();
 
-    const logoutHandler = async () => {
-        try {
-            // Call the API logout function
-            const message = await apiLogout();
-            console.log(message); // Logged out successfully
-    
-            // Clear user info from context and local storage
-            logout();
-    
-            // Redirect to the login page or home page after logout
-            navigate('/');
-        } catch (error) {
-            console.error('Logout failed', error);
-        }
+    const logoutHandler = () => {
+        logout();
+        navigate('/login');
     };
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -39,7 +28,6 @@ function Header() {
     }
     return (
         <header>
-            {/* https://react-bootstrap.github.io/docs/components/navbar */}
             <Navbar bg='' variant='light' expand='lg' collapseOnSelect className={isDarkMode ? "myCustomNavbarDark" : "myCustomNavbar"}>
                 <Container>
                     <Navbar.Brand as={NavLink} to='/'>
@@ -63,39 +51,34 @@ function Header() {
                             {isDarkMode ? (
                                 <FaRegSun style={{ marginRight: '20px', width: '25px', height: '25px', color: 'white', padding: '5px', border: '1px solid grey', cursor: 'pointer' }} onClick={toggleMode} />
                             ) : (
-
                                 <BiSolidMoon style={{ marginRight: '20px', width: '25px', height: '25px', color: 'black', padding: '5px', border: '1px solid grey', cursor: 'pointer' }} onClick={toggleMode} />
                             )}
                         </Nav>
-                        <Nav className='ms-auto ' >
+                        <Nav className='ms-auto'>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/'>Home</Nav.Link>
-                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/popular'>Popular </Nav.Link>
+                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/popular'>Popular</Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
-                            {false ? (
-                                <>
-                                    <NavDropdown title={userInfo.name} id='username'>
-                                        <NavDropdown.Item as={NavLink} to='/profile'>
-                                            Profile
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Item onClick={logoutHandler}>
-                                            Logout
-                                        </NavDropdown.Item>
-                                    </NavDropdown>
-                                </>
+                            {userInfo ? (
+                                <NavDropdown title={userInfo.name} id='username'>
+                                    <NavDropdown.Item as={NavLink} to='/profile'>
+                                        Profile
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item onClick={logoutHandler}>
+                                        Logout
+                                    </NavDropdown.Item>
+                                </NavDropdown>
                             ) : (
                                 <Nav.Link as={NavLink} to='/login'>
                                     <FaUser /> Sign In
                                 </Nav.Link>
                             )}
                         </Nav>
-
                     </Navbar.Collapse>
-
                 </Container>
             </Navbar>
         </header>
     );
-};
+}
 
 export default Header;
