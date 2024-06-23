@@ -53,15 +53,20 @@ function Header() {
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/popular'>Popular </Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
-                        
-                        <NavDropdown id='username'>
-                            <NavDropdown.Item as={NavLink} to='/profile'>
-                                Profile
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                Logout
-                            </NavDropdown.Item>
-                        </NavDropdown>
+                            <Nav.Link as={NavLink} to='/login'>
+                                    <FaUser /> Sign In
+                                </Nav.Link>
+                            <NavDropdown id='username'>
+                                <Nav.Link as={NavLink} to='/login'>
+                                    <FaUser /> Sign In
+                                </Nav.Link>
+                                <NavDropdown.Item as={NavLink} to='/profile'>
+                                    Profile
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    Logout
+                                </NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
 
                     </Navbar.Collapse>
