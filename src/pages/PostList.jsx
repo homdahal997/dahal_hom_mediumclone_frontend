@@ -1,12 +1,12 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { useTheme } from '../contexts/ThemeContext';
-import { fetchPostsData } from '../hooks/fetchDataAPI';
+import { useFetchPostsData } from '../hooks/fetchDataAPI';
 import { useTitle } from '../hooks/useTitle';
 import Post from '../components/post';
 
 export const PostList = ({ title }) => {
     const { isDarkMode } = useTheme();
-    const { data: posts } = fetchPostsData();
+    const { data: posts } = useFetchPostsData();
     useTitle(title);
 
     return (

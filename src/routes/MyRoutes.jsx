@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import MovieDetail from "../pages/MovieDetail";
+import PostDetail from "../pages/PostDetail";
 import Search from "../pages/Search";
 import PageNotFound from "../pages/PageNotFound";
 import LoginForm from "../components/LoginForm";
 import PostList from "../pages/PostList";
+import Register from "../components/RegisterForm";
 
 function MyRoutes() {
     return(
@@ -17,8 +18,11 @@ function MyRoutes() {
             <Route path="search" element={<Search apiPath="search/movie" />} />
             <Route path="*" element={<PageNotFound title="404 Page Not Found"/>} /> */}
 
-            <Route path="/login" element={<LoginForm title="Login" />} />
+            <Route path="/login" element={<LoginForm title="login" />} />
+            <Route path="/register" element={<Register title="register" />} />
             <Route path="/search" element={<Search apiPath="http://localhost:5050/api/v1/posts" />} />
+            <Route path="post/:id" element={<PostDetail />} />
+            
         </Routes>
         </>
     )
