@@ -5,11 +5,11 @@ import Post from '../components/post';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useTheme } from '../contexts/ThemeContext';
 
-function Search({ apiPath }) {
+function Search() {
     const { isDarkMode } = useTheme();
     const [searchParams] = useSearchParams();
     const queryTerm = searchParams.get("q");
-    const { data: posts = [], error } = useFetchPostsData(queryTerm);
+    const { data: posts = [], error } = useFetchPostsData(queryTerm); 
     useTitle(`Search result for ${queryTerm}`);
 
     return (

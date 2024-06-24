@@ -55,7 +55,7 @@ function Header() {
                         </Nav>
                         <Nav className='ms-auto'>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/'>Home</Nav.Link>
-                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/posts/add-a-post'>Add Post</Nav.Link>
+                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/post/add-a-post'>Add Post</Nav.Link>
             
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id='username'>

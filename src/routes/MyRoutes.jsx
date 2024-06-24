@@ -5,6 +5,7 @@ import PageNotFound from "../pages/PageNotFound";
 import LoginForm from "../components/LoginForm";
 import PostList from "../pages/PostList";
 import Register from "../components/RegisterForm";
+import AddPost from "../components/AddPost";
 
 function MyRoutes() {
     return(
@@ -23,6 +24,8 @@ function MyRoutes() {
             <Route path="/register" element={<Register title="register" />} />
             <Route path="/search" element={<Search apiPath="http://localhost:5050/api/v1/posts" />} />
             <Route path="post/:id" element={<PostDetail />} />
+            <Route path="/post/add-a-post" element={<AddPost />} />
+
             
         </Routes>
         </>
