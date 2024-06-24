@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import FormContainer from './FormContainer';
 import { useTheme } from '../contexts/ThemeContext';
+import { useTitle } from '../hooks/useTitle';
 
 const AddPost = () => {
     const navigate = useNavigate();
@@ -12,6 +13,8 @@ const AddPost = () => {
     const [content, setContent] = useState('');
     const [image_url, setImageUrl] = useState('');
     const [posts, setPosts] = useState([]);
+
+    useTitle('Add a Post');
     
 
 

@@ -12,6 +12,11 @@ function Search() {
     const { data: posts = [], error } = useFetchPostsData(queryTerm); 
     useTitle(`Search result for ${queryTerm}`);
 
+    const filteredPosts = posts.filter(post => 
+        post.title.toLowerCase().includes(queryTerm.toLowerCase()) ||
+        post.content.toLowerCase().includes(queryTerm.toLowerCase())
+    );
+
     return (
         <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`}>
             <Container style={{ minHeight: '100vh' }}>
@@ -21,8 +26,8 @@ function Search() {
                 <Row xs={1} md={2} lg={4} className="g-4">
                     {error ? (
                         <p style={{ color: 'red' }}>Error: {error}</p>
-                    ) : posts.length > 0 ? (
-                        posts.map((post) => (
+                    ) : filteredPosts.length > 0 ? (
+                        filteredPosts.map((post) => (
                             <Col key={post._id}>
                                 <Post post={post} />
                             </Col>
@@ -30,7 +35,7 @@ function Search() {
                     ) : (
                         <Col>
                             <p style={{ color: isDarkMode ? 'white' : 'black', fontSize: '30px', display: 'block', whiteSpace: 'nowrap' }}>
-                                Sorry...No results found for <span style={{ textDecoration: 'line-through' }}>{queryTerm}</span> try searching another topic
+                                Sorry...No results found for <span style={{ textDecoration: 'line-through' }}>{queryTerm}</span>. Try searching another topic.
                             </p>
                         </Col>
                     )}
