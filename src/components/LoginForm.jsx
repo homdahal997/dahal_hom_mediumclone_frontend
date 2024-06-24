@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 function LoginForm() {
     const navigate = useNavigate();
     const { isDarkMode, toggleMode } = useTheme();
-    const { userinfo, logout } = useAuth
 
     const handleSubmit = (e) => {
         e.preventDefault();

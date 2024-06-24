@@ -15,9 +15,10 @@ function MyRoutes() {
             <Route path="movies/popular" element={<MovieList apiPath="movie/popular" title="Popular Movies"/>} />
             <Route path="movies/top" element={<MovieList apiPath="movie/top_rated" title="Top Rated Movies" />} />
             <Route path="movies/upcoming" element={<MovieList apiPath="movie/upcoming" title="Upcoming Movies" />} />
-            <Route path="search" element={<Search apiPath="search/movie" />} />
-            <Route path="*" element={<PageNotFound title="404 Page Not Found"/>} /> */}
+            <Route path="search" element={<Search apiPath="search/movie" />} />*/}
 
+            
+            <Route path="*" element={<PageNotFound title="404 Page Not Found"/>} /> 
             <Route path="/login" element={<LoginForm title="login" />} />
             <Route path="/register" element={<Register title="register" />} />
             <Route path="/search" element={<Search apiPath="http://localhost:5050/api/v1/posts" />} />
