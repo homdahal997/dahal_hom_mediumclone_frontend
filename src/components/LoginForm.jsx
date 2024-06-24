@@ -1,81 +1,67 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
-import { useAuth } from '../contexts/AuthContext';
-
+import FormContainer from './FormContainer';
+import { useTheme } from '../contexts/ThemeContext';
+import { Form, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 function LoginForm() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(null); 
     const navigate = useNavigate();
-    const { setCredentials } = useAuth();
+    const { isDarkMode, toggleMode } = useTheme();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setError(null); // Reset error state
-        try {
-            const response = await fetch('http://localhost:5050/api/v1/users/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Login failed');
-            }
+        // Directly access form values from the event target
+        const email = e.target.email.value;
+        const password = e.target.password.value;
 
-            const data = await response.json();
-            setCredentials({ user: data.user, token: data.token });
-            navigate('/profile');
-        } catch (error) {
-            setError(error.message);
-            console.error(error);
+        // Retrieve users array from local storage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Check if the email exists and the password matches
+        const user = users.find(user => user.email === email && user.password === password);
+
+        if (user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            navigate('/dashboard'); // Navigate to a protected route
+        } else {
+            setError('Invalid email or password.');
         }
     };
 
     return (
-        <Container>
-            <Row className='justify-content-md-center'>
-                <Col style={{border: '1px solid grey', padding: '25px', borderRadius:'25px'}} xs={12} md={6}>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group controlId="email">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control
-                                type="email"
-                                placeholder="Enter email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </Form.Group>
+        <>
 
-                        <Form.Group controlId="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </Form.Group>
+            <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`}>
+                <Container style={{height: '100vh'}}>
+                <h1 style={{ textAlign: 'center' }}>Login</h1>
+                            <FormContainer>
+                                <form onSubmit={handleSubmit}>
+                                    <Form.Group className='my-2'>
+                                        <input style={{ width: '100%', color: 'white', padding: '10px', marginTop: '50px' }} type="email" name="email" required placeholder="Email" />
+                                    </Form.Group>
+                                    <Form.Group className='my-2'>
+                                        <input style={{ width: '100%', color: 'white', padding: '10px', marginTop: '50px' }} type="password" name="password" required placeholder="Password" />
+                                    </Form.Group>
+                                    <button style={{ width: '100%', backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '50px' }} type="submit">Login</button>
+                                </form>
+                                <Row className='py-3'>
+                                    <Col>
+                                        New to Context Craft ? {' '}
+                                        <Link to='/register'>
+                                            Register
+                                        </Link>
+                                    </Col>
+                                </Row>
+                            </FormContainer>
+                </Container>
+            </main>
 
-                        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
 
-                        <Button style={{width: '100%', marginTop: '55px'}} variant="primary" type="submit">
-                            Login
-                        </Button>
-                        <Row className="py-3">
-                            <Col style={{marginTop: '25px', float: 'right'}}>
-                                New to Content Craft ? <a href="/register">Register</a>
-                            </Col>
-                        </Row>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+
+
+
+        </>
     );
-}
 
-export default LoginForm;
+}
+export default LoginForm
