@@ -23,12 +23,6 @@ function Footer() {
                         <Nav className='ms-auto'>
                         <Nav.Link href='/' disabled style={{color: 'black'}}>Designed with <FaHeart style={{margin: '0 5px', verticalAlign: 'middle', color:'red'}} /> by <strong>Hom Dahal</strong></Nav.Link>
                         </Nav>
-                        <Nav className='ms-auto'>
-                            <Nav.Link href='/'>Home</Nav.Link>
-                            <Nav.Link href='/'>Polpular</Nav.Link>
-                            <Nav.Link href='/'>Top Rated</Nav.Link>
-                            <Nav.Link href='/'>Upcoming</Nav.Link>
-                        </Nav>
                     </Navbar.Collapse>
                     {/* Scroll to Top Button */}
                     <button style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000',backgroundColor:'red' }} onClick={scrollToTop} className="btn btn-light">
