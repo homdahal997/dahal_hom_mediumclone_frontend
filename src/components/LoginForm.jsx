@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import FormContainer from './FormContainer';
 import { useTheme } from '../contexts/ThemeContext';
+import { useTitle } from "../hooks/useTitle";
 import { Form, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function LoginForm() {
     const navigate = useNavigate();
     const { isDarkMode, toggleMode } = useTheme();
+    const pageTitle = useTitle("login");
 
     const handleSubmit = (e) => {
         e.preventDefault();
