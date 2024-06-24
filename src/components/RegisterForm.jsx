@@ -35,10 +35,10 @@ function RegisterForm() {
                     <h1 style={{ textAlign: 'center' }}>Register</h1>
                     <form onSubmit={handleSubmit}>
                         <Form.Group className='my-2'>
-                            <input style={{ width: '100%', backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '50px' }} type="email" name="email" required placeholder="Email" />
+                            <input style={{ width: '100%', padding: '10px', marginTop: '50px' }} type="email" name="email" required placeholder="Email" />
                         </Form.Group>
                         <Form.Group className='my-2'>
-                            <input style={{ width: '100%', backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '50px' }} type="password" name="password" required placeholder="Password" />
+                            <input style={{ width: '100%', padding: '10px', marginTop: '50px' }} type="password" name="password" required placeholder="Password" />
                         </Form.Group>
                         <button style={{ width: '100%', backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '50px' }} type="submit">Register</button>
                     </form>

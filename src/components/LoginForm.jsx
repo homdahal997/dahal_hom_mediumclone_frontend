@@ -3,9 +3,11 @@ import FormContainer from './FormContainer';
 import { useTheme } from '../contexts/ThemeContext';
 import { Form, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 function LoginForm() {
     const navigate = useNavigate();
     const { isDarkMode, toggleMode } = useTheme();
+    const { userinfo, logout } = useAuth
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +24,7 @@ function LoginForm() {
 
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
-            navigate('/dashboard'); // Navigate to a protected route
+            navigate('/'); // Navigate to a protected route
         } else {
             setError('Invalid email or password.');
         }
@@ -37,10 +39,10 @@ function LoginForm() {
                             <FormContainer>
                                 <form onSubmit={handleSubmit}>
                                     <Form.Group className='my-2'>
-                                        <input style={{ width: '100%', color: 'white', padding: '10px', marginTop: '50px' }} type="email" name="email" required placeholder="Email" />
+                                        <input style={{ width: '100%', padding: '10px', marginTop: '50px' }} type="email" name="email" required placeholder="Email" />
                                     </Form.Group>
                                     <Form.Group className='my-2'>
-                                        <input style={{ width: '100%', color: 'white', padding: '10px', marginTop: '50px' }} type="password" name="password" required placeholder="Password" />
+                                        <input style={{ width: '100%', padding: '10px', marginTop: '50px' }} type="password" name="password" required placeholder="Password" />
                                     </Form.Group>
                                     <button style={{ width: '100%', backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '50px' }} type="submit">Login</button>
                                 </form>
