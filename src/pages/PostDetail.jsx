@@ -9,7 +9,7 @@ function PostDetail() {
     const params = useParams();
     const [post, setPost] = useState({});
     const pageTitle = useTitle(post.title);
-    const image = post.image;
+    const image = post.image_url;
     useEffect(() => {
         async function fetchPost() {
             const response = await fetch(`http://localhost:5050/api/v1/posts/${params.id}`); 
