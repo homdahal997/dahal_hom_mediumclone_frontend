@@ -95,7 +95,7 @@ export const PostList = ({ title }) => {
                                 <Form.Label>Image URL</Form.Label>
                                 <Form.Control type="text" name="image_url" defaultValue={currentPost.image_url} />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button style={{marginTop: '10px'}} variant="primary" type="submit">
                                 Save Changes
                             </Button>
                         </Form>
