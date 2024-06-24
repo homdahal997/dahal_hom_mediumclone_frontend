@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Modal } from 'react-bootstrap';
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import { useTheme } from '../contexts/ThemeContext';
 import { useFetchPostsData } from '../hooks/fetchDataAPI';
 import { useTitle } from '../hooks/useTitle';
@@ -57,8 +59,8 @@ export const PostList = ({ title }) => {
                     {posts ? posts.map((post) => (
                         <Col sm={12} md={6} lg={4} xl={3} key={post._id}>
                             <Post key={post._id} post={post} />
-                            <Button variant="danger" onClick={() => deletePost(post._id)}>Delete</Button>
-                            <Button variant="primary" onClick={() => handleShowModal(post)}>Update Post</Button>
+                            <RiDeleteBin5Line onClick={() => deletePost(post._id)} style={{ cursor: 'pointer',color:'red', marginRight: '10px' }} />
+                            <FaEdit onClick={() => handleShowModal(post)} style={{ cursor: 'pointer', color : 'green' }} />
                         </Col>
                     )) :
                         <Col><p>Loading posts...</p></Col>}
