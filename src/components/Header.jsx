@@ -56,9 +56,8 @@ function Header() {
                         </Nav>
                         <Nav className='ms-auto'>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/'>Home</Nav.Link>
-                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/popular'>Popular</Nav.Link>
-                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/top'>Top Rated</Nav.Link>
-                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/movies/upcoming'>Upcoming</Nav.Link>
+                            <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/posts/add-a-post'>Add Post</Nav.Link>
+            
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id='username'>
                                     <NavDropdown.Item as={NavLink} to='/profile'>
@@ -69,7 +68,7 @@ function Header() {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             ) : (
-                                <Nav.Link as={NavLink} to='/login'>
+                                <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/login'>
                                     <FaUser /> Sign In
                                 </Nav.Link>
                             )}
