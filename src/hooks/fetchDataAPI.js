@@ -6,8 +6,8 @@ export const useFetchPostsData = (queryTerm) => {
 
     useEffect(() => {
         const url = queryTerm 
-            ? `http://localhost:5050/api/v1/posts?search=${queryTerm}` 
-            : "http://localhost:5050/api/v1/posts";
+            ? `https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts?search=${queryTerm}` 
+            : "https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts";
 
         async function fetchPosts() {
             try {
