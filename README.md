@@ -1,16 +1,22 @@
-# TMDB Movie API React App- 
+# Content Craft - Content Management System 
 
-This project is a dynamic, responsive web application built with React, designed to showcase a variety of movies. It leverages the power of React Bootstrap for styling and responsiveness, ensuring a seamless user experience across different devices. The application features a dark mode toggle, allowing users to switch between light and dark themes for a comfortable viewing experience at any time of day.
+This project is a dynamic, responsive web application built with React for frontend, and nodejs and express for backend. It uses MongoDb for storing all data. It leverages the power of React Bootstrap for styling and responsiveness, ensuring a seamless user experience across different devices. The application features a dark mode toggle, allowing users to switch between light and dark themes for a comfortable viewing experience at any time of day.
 
-[Movie Mania Live Demo Here](https://6674dca7f310b6ff1350e4c0--iridescent-torrone-3ff344.netlify.app/)
+[Deployed Capstone Frontend  Netlify Link](<LINKGOESHERE>)
+
+[Capstone Backend Github Link](<LINKGOESHERE>)
+
+[Deployed Capstone Backend Render Link](<LINKGOESHERE>)
+
+
 
 ## Features
 
-- **Dynamic Movie Display**: Showcases a wide range of movies, fetching data from an external API to ensure up-to-date information.
+- **Dynamic post Display**: Showcases a wide range of movies, fetching data from our own backend api hosted on render.com.
 - **Dark Mode Functionality**: Users can toggle between light and dark themes, enhancing usability and accessibility.
 - **Responsive Design**: Built with React Bootstrap, the app is fully responsive and provides a consistent experience on both desktop and mobile devices.
-- **Movie Details**: Clicking on a movie card reveals detailed information about the movie, including a brief overview, release date, and a link to explore further on IMDB.
-- **Search Functionality**: Users can search for movies based on keywords, making it easy to find their favorite films.
+- **Post Details**: Clicking on a Post card reveals detailed information about the post, including a brief overview,and other details
+- **Search Functionality**: Users can search for posts based on keywords, making it easy to find what user is looking for.
 
 ## Technologies Used
 
@@ -28,6 +34,3 @@ To get a local copy up and running, follow these simple steps:
 2. npm install
 
 3. npm run dev
-  
-  ### Initial Project Wireframe
-  ![Initial Mockup](/src/images/sba320_mockup.png)

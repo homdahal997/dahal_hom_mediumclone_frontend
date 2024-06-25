@@ -25,7 +25,7 @@ function LoginForm() {
 
         if (user) {
             localStorage.setItem('currentUser', JSON.stringify(user));
-            navigate('/'); // Navigate to a protected route
+            navigate('/'); 
         } else {
             setError('Invalid email or password.');
         }

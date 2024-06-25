@@ -23,6 +23,7 @@ function Header() {
         event.preventDefault();
         const queryTerm = event.target.search.value;
         event.target.reset();
+
         return navigate(`/search?q=${queryTerm}`);
     }
     return (
@@ -43,6 +44,7 @@ function Header() {
                                 className="me-2"
                                 aria-label="Search"
                                 name='search'
+                                required
                             />
                             <Button style={{ color: isDarkMode ? 'white' : 'black' }} variant="outline-secondary" type="submit">Search</Button>
                         </Form>
@@ -56,7 +58,7 @@ function Header() {
                         <Nav className='ms-auto'>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/'>Home</Nav.Link>
                             <Nav.Link style={{ color: isDarkMode ? 'white' : 'black' }} as={NavLink} to='/post/add-a-post'>Add Post</Nav.Link>
-            
+
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id='username'>
                                     <NavDropdown.Item as={NavLink} to='/profile'>
