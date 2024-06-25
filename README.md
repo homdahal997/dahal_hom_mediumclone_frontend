@@ -1,6 +1,6 @@
 # Content Craft - Content Management System 
 
-##Overview
+## Overview
 The application, named "Content Craft," is a dynamic and responsive web application designed for content management. It is built using React for the frontend, with Node.js and Express for the backend, and MongoDB for data storage. The application features a sleek design with React Bootstrap for styling, ensuring a seamless and responsive user experience across various devices. One of its key features is the dark mode toggle, allowing users to switch between light and dark themes for optimal viewing comfort. The application showcases dynamic post displays, fetching data from a custom backend API, and includes functionalities such as detailed post views, search capabilities, and responsive design for both desktop and mobile devices.
 
 [Deployed Capstone Frontend  Netlify Link](<LINKGOESHERE>)
