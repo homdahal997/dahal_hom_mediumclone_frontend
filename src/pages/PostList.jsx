@@ -21,7 +21,9 @@ export const PostList = ({ title }) => {
     useTitle(title);
 
     useEffect(() => {
-        setPosts(fetchedData.data);
+        if (Array.isArray(fetchedData.data)) {
+            setPosts(fetchedData.data.reverse());
+        }
     }, [fetchedData.data]);
 
     // Delete post

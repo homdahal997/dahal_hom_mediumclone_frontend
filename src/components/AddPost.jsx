@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -9,13 +9,27 @@ import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const initialState = {
+    posts: [],
+};
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'ADD_POST':
+            
+            return { ...state, posts: [action.payload, ...state.posts] };
+        default:
+            return state;
+    }
+}
+
 const AddPost = () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     const navigate = useNavigate();
     const { isDarkMode } = useTheme();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [image_url, setImageUrl] = useState('');
-    const [posts, setPosts] = useState([]);
 
     useTitle('Add a Post');
     
@@ -28,7 +42,8 @@ const AddPost = () => {
         try {
             const response = await axios.post('http://localhost:5050/api/v1/posts', newPost);
             const createdPost = response.data;
-            setPosts(posts => [createdPost, ...posts]);
+            // Dispatch an action to add the new post
+            dispatch({ type: 'ADD_POST', payload: createdPost });
             toast.success("Post added successfully. Taking you to post page now", { autoClose: 4000});
             setTimeout(() => navigate('/'), 4000);
         } catch (error) {
@@ -77,6 +92,15 @@ const AddPost = () => {
                 </Button>
             </Form>
             </FormContainer>
+            <div>
+                    {state.posts.map((post, index) => (
+                        <div key={index}>
+                            <h2>Bingo - Post added</h2>
+                            <p>{post.content}</p>
+                            {post.image_url && <img src={post.image_url} alt={post.title} />}
+                        </div>
+                    ))}
+                </div>
         </Container>
         </main>
     );
