@@ -9,6 +9,7 @@ import Post from '../components/post';
 import axios from 'axios';
 
 export const PostList = ({ title }) => {
+    const BASE_URL = 'https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts'
     const { isDarkMode } = useTheme();
     const fetchedData = useFetchPostsData();
     const [posts, setPosts] = useState(fetchedData.data);
@@ -23,7 +24,7 @@ export const PostList = ({ title }) => {
     // Delete post
     const deletePost = async (postId) => {
         try {
-            await axios.delete(`http://localhost:5050/api/v1/posts/${postId}`);
+            await axios.delete(`${BASE_URL}/${postId}`);
             setPosts(currentPosts => currentPosts.filter(post => post._id !== postId));
         } catch (error) {
             console.error("Error deleting post:", error);
@@ -33,7 +34,7 @@ export const PostList = ({ title }) => {
     // Update post
     const updatePost = async (postId, updatedData) => {
         try {
-            const response = await axios.put(`http://localhost:5050/api/v1/posts/${postId}`, updatedData);
+            const response = await axios.put(`${BASE_URL}/${postId}`, updatedData);
             console.log("Response data:", response.data); 
             setPosts(currentPosts => currentPosts.map(post => post._id === postId ? { ...post, ...response.data } : post));
             setShowModal(false); 
