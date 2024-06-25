@@ -7,6 +7,9 @@ import { useFetchPostsData } from '../hooks/fetchDataAPI';
 import { useTitle } from '../hooks/useTitle';
 import Post from '../components/post';
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const PostList = ({ title }) => {
     const BASE_URL = 'https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts'
@@ -26,8 +29,10 @@ export const PostList = ({ title }) => {
         try {
             await axios.delete(`${BASE_URL}/${postId}`);
             setPosts(currentPosts => currentPosts.filter(post => post._id !== postId));
+            toast.success("Post deleted successfully");
         } catch (error) {
             console.error("Error deleting post:", error);
+            toast.error("Error deleting post");
         }
     }
 
@@ -38,8 +43,10 @@ export const PostList = ({ title }) => {
             console.log("Response data:", response.data); 
             setPosts(currentPosts => currentPosts.map(post => post._id === postId ? { ...post, ...response.data } : post));
             setShowModal(false); 
+            toast.success("Post updated successfully");
         } catch (error) {
             console.error("Error updating post:", error);
+            toast.error("Error updating post");
         }
     };
 
@@ -53,7 +60,10 @@ export const PostList = ({ title }) => {
     };
 
     return (
+        <>
+
         <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`}>
+            
             <Container>
                 <h1 style={{ marginBottom: '50px' }}>{title}</h1>
                 <Row xs={1} md={2} lg={4} className="g-4">
@@ -109,6 +119,8 @@ export const PostList = ({ title }) => {
                 </Modal>
             )}
         </main>
+        <ToastContainer />
+        </>
     );
 }
 

@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import FormContainer from './FormContainer';
 import { useTheme } from '../contexts/ThemeContext';
 import { useTitle } from '../hooks/useTitle';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddPost = () => {
     const navigate = useNavigate();
@@ -26,14 +29,17 @@ const AddPost = () => {
             const response = await axios.post('http://localhost:5050/api/v1/posts', newPost);
             const createdPost = response.data;
             setPosts(posts => [createdPost, ...posts]);
-            navigate('/');
+            toast.success("Post added successfully. Taking you to post page now", { autoClose: 4000});
+            setTimeout(() => navigate('/'), 4000);
         } catch (error) {
             console.error("Error adding new post:", error);
+            toast.error("Failed to add the post.")
         }
     };
 
     return (
         <main className={`py-3 ${isDarkMode ? 'dark-mode-class' : ''}`}>
+            <ToastContainer />
         <Container style={{height: '100vh'}}>
             <FormContainer>
             <h1>Add New Post</h1>
