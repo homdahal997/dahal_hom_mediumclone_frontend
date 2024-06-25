@@ -40,7 +40,7 @@ const AddPost = () => {
         const newPost = { title, content, image_url, user: '66773ce752abd6506c4db2fa' }; 
 
         try {
-            const response = await axios.post('http://localhost:5050/api/v1/posts', newPost);
+            const response = await axios.post('https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts', newPost);
             const createdPost = response.data;
             // Dispatch an action to add the new post
             dispatch({ type: 'ADD_POST', payload: createdPost });
