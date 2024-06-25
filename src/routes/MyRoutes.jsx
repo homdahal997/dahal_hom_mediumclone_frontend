@@ -22,7 +22,7 @@ function MyRoutes() {
             <Route path="*" element={<PageNotFound title="404 Page Not Found"/>} /> 
             <Route path="/login" element={<LoginForm title="login" />} />
             <Route path="/register" element={<Register title="register" />} />
-            <Route path="/search" element={<Search apiPath="http://localhost:5050/api/v1/posts" />} />
+            <Route path="/search" element={<Search apiPath="https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts" />} />
             <Route path="post/:id" element={<PostDetail />} />
             <Route path="/post/add-a-post" element={<AddPost />} />
 

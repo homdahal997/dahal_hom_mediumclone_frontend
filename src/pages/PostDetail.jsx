@@ -12,7 +12,7 @@ function PostDetail() {
     const image = post.image_url;
     useEffect(() => {
         async function fetchPost() {
-            const response = await fetch(`http://localhost:5050/api/v1/posts/${params.id}`); 
+            const response = await fetch(`https://dahal-hom-mediumclone-backend.onrender.com/api/v1/posts/${params.id}`); 
             const json = await response.json()
             setPost(json);
             console.log(json);
