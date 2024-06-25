@@ -13,7 +13,7 @@ The application, named "Content Craft," is a dynamic and responsive web applicat
 
 ## Features
 
-- **Dynamic post Display**: Showcases a wide range of movies, fetching data from our own backend api hosted on render.com.
+- **Dynamic post Display**: Showcases a wide range of posts, fetching data from our own backend api hosted on render.com.
 - **Dark Mode Functionality**: Users can toggle between light and dark themes, enhancing usability and accessibility.
 - **Responsive Design**: Built with React Bootstrap, the app is fully responsive and provides a consistent experience on both desktop and mobile devices.
 - **Post Details**: Clicking on a Post card reveals detailed information about the post, including a brief overview,and other details
