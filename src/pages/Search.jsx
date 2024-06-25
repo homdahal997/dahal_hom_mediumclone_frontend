@@ -35,7 +35,7 @@ function Search() {
                     ) : (
                         <Col>
                             <p style={{ color: isDarkMode ? 'white' : 'black', fontSize: '30px', display: 'block', whiteSpace: 'nowrap' }}>
-                                Sorry...No results found for <span style={{ textDecoration: 'line-through' }}>{queryTerm}</span>. Try searching another topic.
+                                Sorry...No results found for <span style={{ textDecoration: 'line-through' }}>{queryTerm}</span>. Try searching again with different keywords.
                             </p>
                         </Col>
                     )}
