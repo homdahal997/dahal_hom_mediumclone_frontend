@@ -4,6 +4,13 @@ import { useParams } from "react-router-dom";
 import { useTitle } from "../hooks/useTitle";
 import { useTheme } from '../contexts/ThemeContext';
 
+/**
+ * This function component, PostDetail, fetches and displays details of a specific blog post.
+ * It utilizes various hooks for theme management, URL parameters, and state management.
+ * Upon mounting, it fetches the post data from an API and sets it in the state.
+ * The component renders the post's title, image, timestamp, and content.
+ */
+
 function PostDetail() {
     const { isDarkMode, toggleMode } = useTheme();
     const params = useParams();

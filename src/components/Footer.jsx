@@ -16,7 +16,7 @@ function Footer() {
             <Navbar bg='' variant='light' expand='lg' collapseOnSelect className="myCustomNavbarFooter">
                 <Container>
                     <Navbar.Brand href='/'>
-                        <img src={logo} alt='moviemania' />
+                        <img src={logo} alt='Content Craft' />
                         Content Craft </Navbar.Brand>
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
@@ -25,7 +25,7 @@ function Footer() {
                         </Nav>
                     </Navbar.Collapse>
                     {/* Scroll to Top Button */}
-                    <button style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000',backgroundColor:'red' }} onClick={scrollToTop} className="btn btn-light">
+                    <button style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000' }} onClick={scrollToTop} className="btn btn-light">
                         <BsArrowUpCircle size={30} />
                     </button>
                 </Container>

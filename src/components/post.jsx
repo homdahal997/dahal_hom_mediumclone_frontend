@@ -12,7 +12,7 @@ function Post({ post }) {
         <Card>
             <Card.Img style={{height : '200px'}} variant="top" src={image} />
             <Card.Body>
-                <Card.Title>{title.length > 24 ? title .substring(0,24) + '...': title}</Card.Title>
+                <Card.Title>{title.length > 20 ? title .substring(0,23) + '...': title}</Card.Title>
                 <Card.Text>
                     {content.length > 100 ? content.substring(0, 100) + '...' : content}
                 </Card.Text>
