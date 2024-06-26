@@ -5,9 +5,9 @@ The application, named "Content Craft," is a dynamic and responsive web applicat
 
 [Deployed Capstone Frontend  Netlify Link](<LINKGOESHERE>)
 
-[Capstone Backend Github Link](<LINKGOESHERE>)
+[Capstone Backend Github Link](https://github.com/homdahal997/dahal_hom_mediumclone_backend)
 
-[Deployed Capstone Backend Render Link](<LINKGOESHERE>)
+[Deployed Capstone Backend Render Link](https://dahal-hom-mediumclone-backend.onrender.com)
 
 
 

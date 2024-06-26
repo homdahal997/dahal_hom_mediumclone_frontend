@@ -14,7 +14,7 @@ function Post({ post }) {
             <Card.Body>
                 <Card.Title>{title.length > 20 ? title .substring(0,23) + '...': title}</Card.Title>
                 <Card.Text>
-                    {content.length > 100 ? content.substring(0, 100) + '...' : content}
+                    {content.length > 93 ? content.substring(0, 93) + '...' : content}
                 </Card.Text>
                 <Card.Text>
                     <small className="text-muted">Posted on {formattedTimestamp}</small>

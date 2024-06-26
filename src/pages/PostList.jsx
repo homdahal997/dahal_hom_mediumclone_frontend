@@ -26,7 +26,7 @@ export const PostList = ({ title }) => {
         }
     }, [fetchedData.data]);
 
-    // Delete post
+    // Delete post with post id
     const deletePost = async (postId) => {
         try {
             await axios.delete(`${BASE_URL}/${postId}`);
@@ -39,6 +39,9 @@ export const PostList = ({ title }) => {
     }
 
     // Update post
+    /** update post on server using http pur request
+     * Updates the local state to reflect the changes.
+     */
     const updatePost = async (postId, updatedData) => {
         try {
             const response = await axios.put(`${BASE_URL}/${postId}`, updatedData);
