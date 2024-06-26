@@ -11,7 +11,7 @@ function MyRoutes() {
     return(
         <>
         <Routes>
-            <Route path="/" element={<PostList  title="Home" />} />
+            <Route path="/" element={<PostList  title="Latest posts" />} />
             <Route path="*" element={<PageNotFound title="404 Page Not Found"/>} /> 
             <Route path="/login" element={<LoginForm title="login" />} />
             <Route path="/register" element={<Register title="register" />} />
